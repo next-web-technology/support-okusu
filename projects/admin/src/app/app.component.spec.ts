@@ -1,31 +1,22 @@
-import { TestBed } from '@angular/core/testing';
+import { render, screen } from '@testing-library/angular';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  beforeEach(() =>
-    TestBed.configureTestingModule({
-      imports: [AppComponent],
-    }),
-  );
-
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+  it('should create the app', async () => {
+    const fixture = await render(AppComponent);
+    const componentInstance = fixture.debugElement.componentInstance;
+    expect(componentInstance).toBeTruthy();
   });
 
-  it(`should have the 'admin' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('admin');
+  it(`should have the 'admin' title`, async () => {
+    const fixture = await render(AppComponent);
+    const componentInstance = fixture.debugElement.componentInstance;
+    expect(componentInstance.title).toBe('admin');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  it('should render title', async () => {
+    const fixture = await render(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain(
-      'admin app is running!',
-    );
+    expect(screen.findByText('admin app is running!')).toBeTruthy();
   });
 });
