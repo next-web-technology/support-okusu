@@ -550,6 +550,36 @@
               "projects/shared/**/*.html"
             ]
           }
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "configDir": "projects/shared/.storybook",
+            "browserTarget": "shared:build",
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/shared"
+            ],
+            "port": 6006
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": "projects/shared/.storybook",
+            "browserTarget": "shared:build",
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/shared"
+            ],
+            "outputDir": "dist/storybook/shared"
+          }
         }
       }
     }
