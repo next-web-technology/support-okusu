@@ -1,15 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'web-fa-google-icon',
+  selector: 'shared-fa-bars-icon',
   standalone: true,
   imports: [CommonModule, FontAwesomeModule],
   template: ` <fa-icon [icon]="iconDefinition"></fa-icon> `,
   styles: [],
 })
-export class FaGoogleIconComponent {
-  iconDefinition = faGoogle;
+export class FaBarsIconComponent {
+  iconDefinition = faBars;
 }

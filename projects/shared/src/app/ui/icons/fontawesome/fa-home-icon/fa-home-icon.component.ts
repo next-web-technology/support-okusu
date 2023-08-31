@@ -1,15 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faArrowRightToBracket } from '@fortawesome/free-solid-svg-icons';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'web-fa-arrow-right-to-bracket-icon',
+  selector: 'shared-fa-home-icon',
   standalone: true,
   imports: [CommonModule, FontAwesomeModule],
   template: ` <fa-icon [icon]="iconDefinition"></fa-icon> `,
   styles: [],
 })
-export class FaArrowRightToBracketIconComponent {
-  iconDefinition = faArrowRightToBracket;
+export class FaHomeIconComponent {
+  iconDefinition = faHome;
 }
