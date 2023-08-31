@@ -13,6 +13,8 @@
     "test:lp:ci": "ng test --project lp --no-watch --no-progress --browsers=ChromeHeadless",
     "test:web": "ng test --project web",
     "test:web:ci": "ng test --project web --no-watch --no-progress --browsers=ChromeHeadless",
+    "test:shared": "ng test --project shared",
+    "test:shared:ci": "ng test --project shared --no-watch --no-progress --browsers=ChromeHeadless",
     "lint": "ng lint",
     "format": "prettier --write \"projects/**/*.ts\""
   },
