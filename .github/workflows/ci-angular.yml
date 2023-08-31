@@ -2,6 +2,20 @@ name: CI Angular
 on:
   pull_request:
 jobs:
+  ci-angular-lint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16, 18, 20]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+          cache: "npm"
+      - run: npm ci
+      - run: npm run lint
   ci-angular-admin-build:
     runs-on: ubuntu-latest
     strategy:

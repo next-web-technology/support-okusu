@@ -340,17 +340,13 @@
             "outputPath": "dist/shared",
             "index": "projects/shared/src/index.html",
             "main": "projects/shared/src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "projects/shared/tsconfig.app.json",
             "assets": [
               "projects/shared/src/favicon.ico",
               "projects/shared/src/assets"
             ],
-            "styles": [
-              "projects/shared/src/styles.css"
-            ],
+            "styles": ["projects/shared/src/styles.css"],
             "scripts": []
           },
           "configurations": {
@@ -401,19 +397,23 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "projects/shared/tsconfig.spec.json",
             "assets": [
               "projects/shared/src/favicon.ico",
               "projects/shared/src/assets"
             ],
-            "styles": [
-              "projects/shared/src/styles.css"
-            ],
+            "styles": ["projects/shared/src/styles.css"],
             "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/shared/**/*.ts",
+              "projects/shared/**/*.html"
+            ]
           }
         }
       }
