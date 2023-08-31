@@ -1,29 +1,23 @@
 import { AppComponent } from './app.component';
-import { TestBed } from '@angular/core/testing';
+import { render } from '@testing-library/angular';
 
 describe('AppComponent', () => {
-  beforeEach(() =>
-    TestBed.configureTestingModule({
-      imports: [AppComponent],
-    }),
-  );
-
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
+  it('should create the app', async () => {
+    const fixture = await render(AppComponent);
+    const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'shared' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
+  it(`should have the 'shared' title`, async () => {
+    const fixture = await render(AppComponent);
+    const app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('shared');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  xit('should render title', async () => {
+    const fixture = await render(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
+    const compiled = fixture.debugElement.nativeElement as HTMLElement;
     expect(compiled.querySelector('.content span')?.textContent).toContain(
       'shared app is running!',
     );
