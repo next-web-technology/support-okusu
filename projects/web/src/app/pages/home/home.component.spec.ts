@@ -1,5 +1,5 @@
-import { render } from '@testing-library/angular';
 import { HomeComponent } from './home.component';
+import { render } from '@testing-library/angular';
 
 describe('HomeComponent', () => {
   it('should create', async () => {
