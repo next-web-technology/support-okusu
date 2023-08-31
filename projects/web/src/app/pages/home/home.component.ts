@@ -1,5 +1,3 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FaArrowRightFromBracketIconComponent } from '@/web/src/app/ui/icons/fontawesome/fa-arrow-right-from-bracket-icon/fa-arrow-right-from-bracket-icon.component';
 import { FaArrowRightToBracketIconComponent } from '@/web/src/app/ui/icons/fontawesome/fa-arrow-right-to-bracket-icon/fa-arrow-right-to-bracket-icon.component';
 import { FaBarsIconComponent } from '@/web/src/app/ui/icons/fontawesome/fa-bars-icon/fa-bars-icon.component';
@@ -8,6 +6,8 @@ import { FaHomeIconComponent } from '@/web/src/app/ui/icons/fontawesome/fa-home-
 import { FaQrcodeIconComponent } from '@/web/src/app/ui/icons/fontawesome/fa-qrcode-icon/fa-qrcode-icon.component';
 import { FaUserIconComponent } from '@/web/src/app/ui/icons/fontawesome/fa-user-icon/fa-user-icon.component';
 import { FaUserPlusIconComponent } from '@/web/src/app/ui/icons/fontawesome/fa-user-plus-icon/fa-user-plus-icon.component';
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'web-home',
