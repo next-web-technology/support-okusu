@@ -1,8 +1,11 @@
 import type { User } from './User';
+import Button from './button.component';
+import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'storybook-header',
+  imports: [CommonModule, Button],
   template: `<header>
     <div class="storybook-header">
       <div>
@@ -52,9 +55,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
           ></storybook-button>
           <storybook-button
             *ngIf="!user"
-            primary
+            [primary]="true"
             size="small"
-            primary="true"
             class="margin-left"
             (onClick)="onCreateAccount.emit($event)"
             label="Sign up"
@@ -64,6 +66,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
     </div>
   </header>`,
   styleUrls: ['./header.css'],
+  standalone: true,
 })
 export default class HeaderComponent {
   @Input()
