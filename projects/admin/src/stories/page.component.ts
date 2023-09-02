@@ -1,8 +1,10 @@
 import type { User } from './User';
+import HeaderComponent from './header.component';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'storybook-page',
+  imports: [HeaderComponent],
   template: `<article>
     <storybook-header
       [user]="user"
@@ -78,6 +80,7 @@ import { Component } from '@angular/core';
     </section>
   </article>`,
   styleUrls: ['./page.css'],
+  standalone: true,
 })
 export default class PageComponent {
   user: User | null = null;
