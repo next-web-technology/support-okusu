@@ -243,7 +243,7 @@
             "browserTarget": "web:build",
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "projects/web"],
-            "port": 6006
+            "port": 6007
           }
         },
         "build-storybook": {
@@ -360,7 +360,7 @@
             "browserTarget": "lp:build",
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "projects/lp"],
-            "port": 6006
+            "port": 6008
           }
         },
         "build-storybook": {
@@ -483,7 +483,7 @@
             "browserTarget": "shared:build",
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "projects/shared"],
-            "port": 6006
+            "port": 6009
           }
         },
         "build-storybook": {
