@@ -16,7 +16,15 @@
     "test:shared": "ng test --project shared",
     "test:shared:ci": "ng test --project shared --no-watch --no-progress --browsers=ChromeHeadless",
     "lint": "ng lint",
-    "format": "prettier --write \"projects/**/*.ts\""
+    "format": "prettier --write \"projects/**/*.ts\"",
+    "storybook:admin": "ng run admin:storybook",
+    "storybook:web": "ng run web:storybook",
+    "storybook:lp": "ng run lp:storybook",
+    "storybook:shared": "ng run shared:storybook",
+    "build-storybook:admin": "ng run admin:build-storybook",
+    "build-storybook:web": "ng run web:build-storybook",
+    "build-storybook:lp": "ng run lp:build-storybook",
+    "build-storybook:shared": "ng run shared:build-storybook"
   },
   "private": true,
   "dependencies": {
