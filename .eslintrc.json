@@ -18,6 +18,11 @@
             "type": "attribute",
             "prefix": "admin",
             "style": "camelCase"
+          },
+          {
+            "type": "attribute",
+            "prefix": "storybook",
+            "style": "camelCase"
           }
         ],
         "@angular-eslint/component-selector": [
@@ -25,6 +30,11 @@
           {
             "type": "element",
             "prefix": "admin",
+            "style": "kebab-case"
+          },
+          {
+            "type": "element",
+            "prefix": "storybook",
             "style": "kebab-case"
           }
         ]
