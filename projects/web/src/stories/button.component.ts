@@ -6,7 +6,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   imports: [CommonModule],
   template: ` <button
     type="button"
-    (click)="onClick.emit($event)"
+    (click)="(clickEventHandler)"
     [ngClass]="classes"
     [ngStyle]="{ 'background-color': backgroundColor }"
   >
@@ -46,7 +46,7 @@ export default class ButtonComponent {
    * Optional click handler
    */
   @Output()
-  onClick = new EventEmitter<Event>();
+  clickEvent = new EventEmitter<Event>();
 
   public get classes(): string[] {
     const mode = this.primary
@@ -55,4 +55,8 @@ export default class ButtonComponent {
 
     return ['storybook-button', `storybook-button--${this.size}`, mode];
   }
+
+  clickEventHandler = ($event: MouseEvent) => {
+    this.clickEvent.emit($event);
+  };
 }

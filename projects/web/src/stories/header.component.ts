@@ -41,7 +41,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
           <storybook-button
             *ngIf="user"
             size="small"
-            (onClick)="onLogout.emit($event)"
+            (clickEvent)="(logoutEventHandler)"
             label="Log out"
           ></storybook-button>
         </div>
@@ -50,7 +50,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
             *ngIf="!user"
             size="small"
             class="margin-left"
-            (onClick)="onLogin.emit($event)"
+            (clickEvent)="(loginEventHandler)"
             label="Log in"
           ></storybook-button>
           <storybook-button
@@ -58,7 +58,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
             [primary]="true"
             size="small"
             class="margin-left"
-            (onClick)="onCreateAccount.emit($event)"
+            (clickEvent)="(createAccountEventHandler)"
             label="Sign up"
           ></storybook-button>
         </div>
@@ -73,11 +73,23 @@ export default class HeaderComponent {
   user: User | null = null;
 
   @Output()
-  onLogin = new EventEmitter<Event>();
+  loginEvent = new EventEmitter<Event>();
 
   @Output()
-  onLogout = new EventEmitter<Event>();
+  logoutEvent = new EventEmitter<Event>();
 
   @Output()
-  onCreateAccount = new EventEmitter<Event>();
+  createAccountEvent = new EventEmitter<Event>();
+
+  loginEventHandler = ($event: Event) => {
+    this.loginEvent.emit($event);
+  };
+
+  logoutEventHandler = ($event: Event) => {
+    this.logoutEvent.emit($event);
+  };
+
+  createAccountEventHandler = ($event: Event) => {
+    this.createAccountEvent.emit($event);
+  };
 }

@@ -8,9 +8,9 @@ import { Component } from '@angular/core';
   template: `<article>
     <storybook-header
       [user]="user"
-      (onLogout)="doLogout()"
-      (onLogin)="doLogin()"
-      (onCreateAccount)="doCreateAccount()"
+      (logoutEvent)="doLogout()"
+      (loginEvent)="doLogin()"
+      (createAccountEvent)="doCreateAccount()"
     ></storybook-header>
     <section class="storybook-page">
       <h2>Pages in Storybook</h2>

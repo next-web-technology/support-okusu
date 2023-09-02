@@ -16,12 +16,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "admin",
-            "style": "camelCase"
-          },
-          {
-            "type": "attribute",
-            "prefix": "storybook",
+            "prefix": ["admin", "storybook"],
             "style": "camelCase"
           }
         ],
@@ -29,12 +24,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "admin",
-            "style": "kebab-case"
-          },
-          {
-            "type": "element",
-            "prefix": "storybook",
+            "prefix": ["admin", "storybook"],
             "style": "kebab-case"
           }
         ]

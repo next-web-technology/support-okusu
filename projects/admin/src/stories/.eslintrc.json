@@ -1,5 +1,9 @@
 {
+  "extends": "../../.eslintrc.json",
   "rules": {
-    "@typescript-eslint/consistent-type-imports": ["error", { "disallowTypeAnnotations": false }]
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      { "disallowTypeAnnotations": false }
+    ]
   }
 }
