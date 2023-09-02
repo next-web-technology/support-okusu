@@ -135,7 +135,7 @@
           "builder": "@cypress/schematic:cypress",
           "options": {
             "devServerTarget": "admin:serve",
-            "configFile": "projects/admin/cypress.config.js"
+            "configFile": "projects/admin/cypress.config.ts"
           },
           "configurations": {
             "production": {
@@ -148,7 +148,7 @@
           "options": {
             "watch": true,
             "headless": false,
-            "configFile": "projects/admin/cypress.config.js"
+            "configFile": "projects/admin/cypress.config.ts"
           }
         },
         "e2e": {
@@ -294,7 +294,7 @@
           "builder": "@cypress/schematic:cypress",
           "options": {
             "devServerTarget": "web:serve",
-            "configFile": "projects/web/cypress.config.js"
+            "configFile": "projects/web/cypress.config.ts"
           },
           "configurations": {
             "production": {
@@ -307,7 +307,7 @@
           "options": {
             "watch": true,
             "headless": false,
-            "configFile": "projects/web/cypress.config.js"
+            "configFile": "projects/web/cypress.config.ts"
           }
         },
         "e2e": {
@@ -444,7 +444,7 @@
           "builder": "@cypress/schematic:cypress",
           "options": {
             "devServerTarget": "lp:serve",
-            "configFile": "projects/lp/cypress.config.js"
+            "configFile": "projects/lp/cypress.config.ts"
           },
           "configurations": {
             "production": {
@@ -457,7 +457,7 @@
           "options": {
             "watch": true,
             "headless": false,
-            "configFile": "projects/lp/cypress.config.js"
+            "configFile": "projects/lp/cypress.config.ts"
           }
         },
         "e2e": {
@@ -600,7 +600,7 @@
           "builder": "@cypress/schematic:cypress",
           "options": {
             "devServerTarget": "shared:serve",
-            "configFile": "projects/shared/cypress.config.js"
+            "configFile": "projects/shared/cypress.config.ts"
           },
           "configurations": {
             "production": {
@@ -613,7 +613,7 @@
           "options": {
             "watch": true,
             "headless": false,
-            "configFile": "projects/shared/cypress.config.js"
+            "configFile": "projects/shared/cypress.config.ts"
           }
         },
         "e2e": {
