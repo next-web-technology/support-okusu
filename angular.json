@@ -2,7 +2,11 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "schematicCollections": [
+      "@cypress/schematic",
+      "@schematics/angular"
+    ]
   },
   "newProjectRoot": "projects",
   "projects": {
@@ -31,13 +35,17 @@
             "outputPath": "dist/admin",
             "index": "projects/admin/src/index.html",
             "main": "projects/admin/src/main.ts",
-            "polyfills": ["zone.js"],
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "projects/admin/tsconfig.app.json",
             "assets": [
               "projects/admin/src/favicon.ico",
               "projects/admin/src/assets"
             ],
-            "styles": ["projects/admin/src/styles.css"],
+            "styles": [
+              "projects/admin/src/styles.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -91,13 +99,18 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": ["zone.js", "zone.js/testing"],
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "projects/admin/tsconfig.spec.json",
             "assets": [
               "projects/admin/src/favicon.ico",
               "projects/admin/src/assets"
             ],
-            "styles": ["projects/admin/src/styles.css"],
+            "styles": [
+              "projects/admin/src/styles.css"
+            ],
             "scripts": []
           }
         },
@@ -116,7 +129,12 @@
             "configDir": "projects/admin/.storybook",
             "browserTarget": "admin:build",
             "compodoc": true,
-            "compodocArgs": ["-e", "json", "-d", "projects/admin"],
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/admin"
+            ],
             "port": 6006
           }
         },
@@ -126,8 +144,46 @@
             "configDir": "projects/admin/.storybook",
             "browserTarget": "admin:build",
             "compodoc": true,
-            "compodocArgs": ["-e", "json", "-d", "projects/admin"],
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/admin"
+            ],
             "outputDir": "dist/storybook/admin"
+          }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "admin:serve",
+            "configFile": "projects/admin/cypress.config.js"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "admin:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false,
+            "configFile": "projects/admin/cypress.config.js"
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "admin:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "admin:serve:production"
+            }
           }
         }
       }
@@ -157,13 +213,17 @@
             "outputPath": "dist/web",
             "index": "projects/web/src/index.html",
             "main": "projects/web/src/main.ts",
-            "polyfills": ["zone.js"],
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "projects/web/tsconfig.app.json",
             "assets": [
               "projects/web/src/favicon.ico",
               "projects/web/src/assets"
             ],
-            "styles": ["projects/web/src/styles.css"],
+            "styles": [
+              "projects/web/src/styles.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -217,13 +277,18 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": ["zone.js", "zone.js/testing"],
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "projects/web/tsconfig.spec.json",
             "assets": [
               "projects/web/src/favicon.ico",
               "projects/web/src/assets"
             ],
-            "styles": ["projects/web/src/styles.css"],
+            "styles": [
+              "projects/web/src/styles.css"
+            ],
             "scripts": []
           }
         },
@@ -242,7 +307,12 @@
             "configDir": "projects/web/.storybook",
             "browserTarget": "web:build",
             "compodoc": true,
-            "compodocArgs": ["-e", "json", "-d", "projects/web"],
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/web"
+            ],
             "port": 6007
           }
         },
@@ -252,8 +322,46 @@
             "configDir": "projects/web/.storybook",
             "browserTarget": "web:build",
             "compodoc": true,
-            "compodocArgs": ["-e", "json", "-d", "projects/web"],
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/web"
+            ],
             "outputDir": "dist/storybook/web"
+          }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "web:serve",
+            "configFile": "projects/web/cypress.config.js"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "web:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false,
+            "configFile": "projects/web/cypress.config.js"
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "web:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "web:serve:production"
+            }
           }
         }
       }
@@ -283,10 +391,17 @@
             "outputPath": "dist/lp",
             "index": "projects/lp/src/index.html",
             "main": "projects/lp/src/main.ts",
-            "polyfills": ["zone.js"],
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "projects/lp/tsconfig.app.json",
-            "assets": ["projects/lp/src/favicon.ico", "projects/lp/src/assets"],
-            "styles": ["projects/lp/src/styles.css"],
+            "assets": [
+              "projects/lp/src/favicon.ico",
+              "projects/lp/src/assets"
+            ],
+            "styles": [
+              "projects/lp/src/styles.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -340,17 +455,28 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": ["zone.js", "zone.js/testing"],
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "projects/lp/tsconfig.spec.json",
-            "assets": ["projects/lp/src/favicon.ico", "projects/lp/src/assets"],
-            "styles": ["projects/lp/src/styles.css"],
+            "assets": [
+              "projects/lp/src/favicon.ico",
+              "projects/lp/src/assets"
+            ],
+            "styles": [
+              "projects/lp/src/styles.css"
+            ],
             "scripts": []
           }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["projects/lp/**/*.ts", "projects/lp/**/*.html"]
+            "lintFilePatterns": [
+              "projects/lp/**/*.ts",
+              "projects/lp/**/*.html"
+            ]
           }
         },
         "storybook": {
@@ -359,7 +485,12 @@
             "configDir": "projects/lp/.storybook",
             "browserTarget": "lp:build",
             "compodoc": true,
-            "compodocArgs": ["-e", "json", "-d", "projects/lp"],
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/lp"
+            ],
             "port": 6008
           }
         },
@@ -369,8 +500,46 @@
             "configDir": "projects/lp/.storybook",
             "browserTarget": "lp:build",
             "compodoc": true,
-            "compodocArgs": ["-e", "json", "-d", "projects/lp"],
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/lp"
+            ],
             "outputDir": "dist/storybook/lp"
+          }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "lp:serve",
+            "configFile": "projects/lp/cypress.config.js"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "lp:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false,
+            "configFile": "projects/lp/cypress.config.js"
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "lp:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "lp:serve:production"
+            }
           }
         }
       }
@@ -400,13 +569,17 @@
             "outputPath": "dist/shared",
             "index": "projects/shared/src/index.html",
             "main": "projects/shared/src/main.ts",
-            "polyfills": ["zone.js"],
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "projects/shared/tsconfig.app.json",
             "assets": [
               "projects/shared/src/favicon.ico",
               "projects/shared/src/assets"
             ],
-            "styles": ["projects/shared/src/styles.css"],
+            "styles": [
+              "projects/shared/src/styles.css"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -457,13 +630,18 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": ["zone.js", "zone.js/testing"],
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "projects/shared/tsconfig.spec.json",
             "assets": [
               "projects/shared/src/favicon.ico",
               "projects/shared/src/assets"
             ],
-            "styles": ["projects/shared/src/styles.css"],
+            "styles": [
+              "projects/shared/src/styles.css"
+            ],
             "scripts": []
           }
         },
@@ -482,7 +660,12 @@
             "configDir": "projects/shared/.storybook",
             "browserTarget": "shared:build",
             "compodoc": true,
-            "compodocArgs": ["-e", "json", "-d", "projects/shared"],
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/shared"
+            ],
             "port": 6009
           }
         },
@@ -492,8 +675,46 @@
             "configDir": "projects/shared/.storybook",
             "browserTarget": "shared:build",
             "compodoc": true,
-            "compodocArgs": ["-e", "json", "-d", "projects/shared"],
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/shared"
+            ],
             "outputDir": "dist/storybook/shared"
+          }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "shared:serve",
+            "configFile": "projects/shared/cypress.config.js"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "shared:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false,
+            "configFile": "projects/shared/cypress.config.js"
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "shared:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "shared:serve:production"
+            }
           }
         }
       }
