@@ -184,3 +184,139 @@ jobs:
           cache: "npm"
       - run: npm ci
       - run: npm run build-storybook:shared
+  ci-angular-admin-e2e-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16, 18, 20]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+          cache: "npm"
+      - name: install fonts-noto
+        run: sudo apt install fonts-noto
+      - run: npm ci
+      - run: npm run e2e:admin:ci
+      - name: upload cypress downloads as artifacts
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: admin-cypress-downloads
+          path: cypress/downloads
+      - name: upload cypress videos as artifacts
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: admin-cypress-videos
+          path: cypress/videos
+      - name: upload cypress screenshots as artifacts
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: admin-cypress-screenshots
+          path: cypress/screenshots
+  ci-angular-lp-e2e-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16, 18, 20]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+          cache: "npm"
+      - name: install fonts-noto
+        run: sudo apt install fonts-noto
+      - run: npm ci
+      - run: npm run e2e:lp:ci
+      - name: upload cypress downloads as artifacts
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: lp-cypress-downloads
+          path: cypress/downloads
+      - name: upload cypress videos as artifacts
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: lp-cypress-videos
+          path: cypress/videos
+      - name: upload cypress screenshots as artifacts
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: lp-cypress-screenshots
+          path: cypress/screenshots
+  ci-angular-web-e2e-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16, 18, 20]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+          cache: "npm"
+      - name: install fonts-noto
+        run: sudo apt install fonts-noto
+      - run: npm ci
+      - run: npm run e2e:web:ci
+      - name: upload cypress downloads as artifacts
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: web-cypress-downloads
+          path: cypress/downloads
+      - name: upload cypress videos as artifacts
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: web-cypress-videos
+          path: cypress/videos
+      - name: upload cypress screenshots as artifacts
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: web-cypress-screenshots
+          path: cypress/screenshots
+  ci-angular-shared-e2e-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16, 18, 20]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+          cache: "npm"
+      - name: install fonts-noto
+        run: sudo apt install fonts-noto
+      - run: npm ci
+      - run: npm run e2e:shared:ci
+      - name: upload cypress downloads as artifacts
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: shared-cypress-downloads
+          path: cypress/downloads
+      - name: upload cypress videos as artifacts
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: shared-cypress-videos
+          path: cypress/videos
+      - name: upload cypress screenshots as artifacts
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: shared-cypress-screenshots
+          path: cypress/screenshots

@@ -2,7 +2,8 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "schematicCollections": ["@cypress/schematic", "@schematics/angular"]
   },
   "newProjectRoot": "projects",
   "projects": {
@@ -128,6 +129,39 @@
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "projects/admin"],
             "outputDir": "dist/storybook/admin"
+          }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "admin:serve",
+            "configFile": "projects/admin/cypress.config.ts"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "admin:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false,
+            "configFile": "projects/admin/cypress.config.ts"
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "admin:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "admin:serve:production"
+            }
           }
         }
       }
@@ -255,6 +289,39 @@
             "compodocArgs": ["-e", "json", "-d", "projects/web"],
             "outputDir": "dist/storybook/web"
           }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "web:serve",
+            "configFile": "projects/web/cypress.config.ts"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "web:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false,
+            "configFile": "projects/web/cypress.config.ts"
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "web:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "web:serve:production"
+            }
+          }
         }
       }
     },
@@ -372,6 +439,39 @@
             "compodocArgs": ["-e", "json", "-d", "projects/lp"],
             "outputDir": "dist/storybook/lp"
           }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "lp:serve",
+            "configFile": "projects/lp/cypress.config.ts"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "lp:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false,
+            "configFile": "projects/lp/cypress.config.ts"
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "lp:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "lp:serve:production"
+            }
+          }
         }
       }
     },
@@ -446,7 +546,10 @@
               "browserTarget": "shared:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "port": 4203
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -494,6 +597,39 @@
             "compodoc": true,
             "compodocArgs": ["-e", "json", "-d", "projects/shared"],
             "outputDir": "dist/storybook/shared"
+          }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "shared:serve",
+            "configFile": "projects/shared/cypress.config.ts"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "shared:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false,
+            "configFile": "projects/shared/cypress.config.ts"
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "shared:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "shared:serve:production"
+            }
           }
         }
       }
