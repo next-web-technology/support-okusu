@@ -109,6 +109,26 @@
               "projects/admin/**/*.html"
             ]
           }
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "configDir": "projects/admin/.storybook",
+            "browserTarget": "admin:build",
+            "compodoc": true,
+            "compodocArgs": ["-e", "json", "-d", "projects/admin"],
+            "port": 6006
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": "projects/admin/.storybook",
+            "browserTarget": "admin:build",
+            "compodoc": true,
+            "compodocArgs": ["-e", "json", "-d", "projects/admin"],
+            "outputDir": "dist/storybook/admin"
+          }
         }
       }
     },
@@ -215,6 +235,26 @@
               "projects/web/**/*.html"
             ]
           }
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "configDir": "projects/web/.storybook",
+            "browserTarget": "web:build",
+            "compodoc": true,
+            "compodocArgs": ["-e", "json", "-d", "projects/web"],
+            "port": 6007
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": "projects/web/.storybook",
+            "browserTarget": "web:build",
+            "compodoc": true,
+            "compodocArgs": ["-e", "json", "-d", "projects/web"],
+            "outputDir": "dist/storybook/web"
+          }
         }
       }
     },
@@ -311,6 +351,26 @@
           "builder": "@angular-eslint/builder:lint",
           "options": {
             "lintFilePatterns": ["projects/lp/**/*.ts", "projects/lp/**/*.html"]
+          }
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "configDir": "projects/lp/.storybook",
+            "browserTarget": "lp:build",
+            "compodoc": true,
+            "compodocArgs": ["-e", "json", "-d", "projects/lp"],
+            "port": 6008
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": "projects/lp/.storybook",
+            "browserTarget": "lp:build",
+            "compodoc": true,
+            "compodocArgs": ["-e", "json", "-d", "projects/lp"],
+            "outputDir": "dist/storybook/lp"
           }
         }
       }
@@ -414,6 +474,26 @@
               "projects/shared/**/*.ts",
               "projects/shared/**/*.html"
             ]
+          }
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "configDir": "projects/shared/.storybook",
+            "browserTarget": "shared:build",
+            "compodoc": true,
+            "compodocArgs": ["-e", "json", "-d", "projects/shared"],
+            "port": 6009
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": "projects/shared/.storybook",
+            "browserTarget": "shared:build",
+            "compodoc": true,
+            "compodocArgs": ["-e", "json", "-d", "projects/shared"],
+            "outputDir": "dist/storybook/shared"
           }
         }
       }
