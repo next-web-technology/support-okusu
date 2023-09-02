@@ -27,7 +27,11 @@
     "build-storybook:shared": "ng run shared:build-storybook",
     "e2e": "ng e2e",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run",
+    "e2e:admin:ci": "ng run admin:cypress-run",
+    "e2e:lp:ci": "ng run lp:cypress-run",
+    "e2e:web:ci": "ng run web:cypress-run",
+    "e2e:shared:ci": "ng run shared:cypress-run"
   },
   "private": true,
   "dependencies": {
