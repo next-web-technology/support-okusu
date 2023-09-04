@@ -123,7 +123,7 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: "npm"
       - run: npm ci
-      - run: npm run build-storybook:p
+      - run: npm run build-storybook:lp
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
