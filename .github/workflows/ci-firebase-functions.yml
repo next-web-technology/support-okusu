@@ -1,0 +1,58 @@
+name: CI Firebase Functions
+on:
+  pull_request:
+jobs:
+  ci-firebase-functions-lint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+          cache: "npm"
+      - name: Install dependencies
+        run: npm ci
+        working-directory: functions
+      - name: Lint
+        run: npm run lint
+        working-directory: functions
+  ci-firebase-functions-build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+          cache: "npm"
+      - name: Install dependencies
+        run: npm ci
+        working-directory: functions
+      - name: Build Firebase Functions
+        run: npm run build
+        working-directory: functions
+  ci-firebase-functions-unit-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+          cache: "npm"
+      - name: Install dependencies
+        run: npm ci
+        working-directory: functions
+      - name: Unit Test Firebase Functions
+        run: npm run test
+        working-directory: functions
