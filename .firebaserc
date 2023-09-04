@@ -1,0 +1,36 @@
+{
+  "projects": {
+    "default": "support-okusu-test"
+  },
+  "targets": {
+    "support-okusu-test": {
+      "hosting": {
+        "admin": [
+          "admin-support-okusu-test"
+        ],
+        "lp": [
+          "support-okusu-test"
+        ],
+        "shared": [
+          "shared-support-okusu-test"
+        ],
+        "web": [
+          "web-support-okusu-test"
+        ],
+        "storybook-admin": [
+          "storybook-admin-support-okusu-test"
+        ],
+        "storybook-lp": [
+          "storybook-support-okusu-test"
+        ],
+        "storybook-shared": [
+          "storybook-shared-support-okusu-test"
+        ],
+        "storybook-web": [
+          "storybook-web-support-okusu-test"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
