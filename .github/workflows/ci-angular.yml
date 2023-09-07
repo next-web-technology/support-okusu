@@ -189,6 +189,9 @@ jobs:
     strategy:
       matrix:
         node-version: [18]
+    permissions:
+      contents: "read"
+      id-token: "write"
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node }}
@@ -218,11 +221,24 @@ jobs:
         with:
           name: admin-cypress-screenshots
           path: cypress/screenshots
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v1
+        with:
+          workload_identity_provider: projects/1029560278654/locations/global/workloadIdentityPools/github-actions-pool/providers/github-actions-provider
+          service_account: github-actions@$support-okusu-test.iam.gserviceaccount.com
+      - name: Recover regconfig.admin.json
+        env:
+          REGCONFIG: ${{ secrets.REGCONFIG_ADMIN }}
+        run: echo -n "$REGCONFIG" | base64 --decode > regconfig.admin.json
+      - run: npm run reg-suit:admin:run
   ci-angular-lp-e2e-test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [18]
+    permissions:
+      contents: "read"
+      id-token: "write"
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node }}
@@ -252,11 +268,24 @@ jobs:
         with:
           name: lp-cypress-screenshots
           path: cypress/screenshots
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v1
+        with:
+          workload_identity_provider: projects/1029560278654/locations/global/workloadIdentityPools/github-actions-pool/providers/github-actions-provider
+          service_account: github-actions@$support-okusu-test.iam.gserviceaccount.com
+      - name: Recover regconfig.lp.json
+        env:
+          REGCONFIG: ${{ secrets.REGCONFIG_LP }}
+        run: echo -n "$REGCONFIG" | base64 --decode > regconfig.lp.json
+      - run: npm run reg-suit:lp:run
   ci-angular-web-e2e-test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [18]
+    permissions:
+      contents: "read"
+      id-token: "write"
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node }}
@@ -286,11 +315,24 @@ jobs:
         with:
           name: web-cypress-screenshots
           path: cypress/screenshots
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v1
+        with:
+          workload_identity_provider: projects/1029560278654/locations/global/workloadIdentityPools/github-actions-pool/providers/github-actions-provider
+          service_account: github-actions@$support-okusu-test.iam.gserviceaccount.com
+      - name: Recover regconfig.web.json
+        env:
+          REGCONFIG: ${{ secrets.REGCONFIG_WEB }}
+        run: echo -n "$REGCONFIG" | base64 --decode > regconfig.web.json
+      - run: npm run reg-suit:web:run
   ci-angular-shared-e2e-test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [18]
+    permissions:
+      contents: "read"
+      id-token: "write"
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node }}
@@ -320,3 +362,13 @@ jobs:
         with:
           name: shared-cypress-screenshots
           path: cypress/screenshots
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v1
+        with:
+          workload_identity_provider: projects/1029560278654/locations/global/workloadIdentityPools/github-actions-pool/providers/github-actions-provider
+          service_account: github-actions@$support-okusu-test.iam.gserviceaccount.com
+      - name: Recover regconfig.shared.json
+        env:
+          REGCONFIG: ${{ secrets.REGCONFIG_SHARED }}
+        run: echo -n "$REGCONFIG" | base64 --decode > regconfig.shared.json
+      - run: npm run reg-suit:shared:run
