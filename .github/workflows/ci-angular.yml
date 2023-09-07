@@ -226,8 +226,8 @@ jobs:
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v1
         with:
-          workload_identity_provider: projects/1029560278654/locations/global/workloadIdentityPools/github-actions-pool/providers/github-actions-provider
-          service_account: github-actions@$support-okusu-test.iam.gserviceaccount.com
+          workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER_TEST }}
+          service_account: ${{ secrets.SERVICE_ACCOUNT_TEST }}
       - name: Recover regconfig.admin.json
         env:
           REGCONFIG: ${{ secrets.REGCONFIG_ADMIN }}
@@ -275,8 +275,8 @@ jobs:
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v1
         with:
-          workload_identity_provider: projects/1029560278654/locations/global/workloadIdentityPools/github-actions-pool/providers/github-actions-provider
-          service_account: github-actions@$support-okusu-test.iam.gserviceaccount.com
+          workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER_TEST }}
+          service_account: ${{ secrets.SERVICE_ACCOUNT_TEST }}
       - name: Recover regconfig.lp.json
         env:
           REGCONFIG: ${{ secrets.REGCONFIG_LP }}
@@ -324,8 +324,8 @@ jobs:
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v1
         with:
-          workload_identity_provider: projects/1029560278654/locations/global/workloadIdentityPools/github-actions-pool/providers/github-actions-provider
-          service_account: github-actions@$support-okusu-test.iam.gserviceaccount.com
+          workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER_TEST }}
+          service_account: ${{ secrets.SERVICE_ACCOUNT_TEST }}
       - name: Recover regconfig.web.json
         env:
           REGCONFIG: ${{ secrets.REGCONFIG_WEB }}
@@ -373,8 +373,8 @@ jobs:
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v1
         with:
-          workload_identity_provider: projects/1029560278654/locations/global/workloadIdentityPools/github-actions-pool/providers/github-actions-provider
-          service_account: github-actions@$support-okusu-test.iam.gserviceaccount.com
+          workload_identity_provider: ${{ secrets.WORKLOAD_IDENTITY_PROVIDER_TEST }}
+          service_account: ${{ secrets.SERVICE_ACCOUNT_TEST }}
       - name: Recover regconfig.shared.json
         env:
           REGCONFIG: ${{ secrets.REGCONFIG_SHARED }}
