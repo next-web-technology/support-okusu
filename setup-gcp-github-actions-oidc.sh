@@ -9,6 +9,6 @@ gcloud iam workload-identity-pools providers create-oidc "github-actions-provide
 gcloud iam workload-identity-pools describe "github-actions-pool" --project="${PROJECT_ID}" --location="global" --format="value(name)"
 WORKLOAD_IDENTITY_POOL_ID='PUT_ABOVE_OUTPUT_HERE'
 IAM_PRINCIPAL="principalSet://iam.googleapis.com/${WORKLOAD_IDENTITY_POOL_ID}/*"
-gcloud iam service-accounts add-iam-policy-binding "github-actions@${PROJECT_ID}.iam.gserviceaccount.com" --project="${PROJECT_ID}" --role="roles/iam.wokloadIdentityUser" --member="${IAM_PRINCIPAL}"
+gcloud iam service-accounts add-iam-policy-binding "github-actions@${PROJECT_ID}.iam.gserviceaccount.com" --project="${PROJECT_ID}" --role="roles/iam.workloadIdentityUser" --member="${IAM_PRINCIPAL}"
 gcloud iam workload-identity-pools providers describe "github-actions-provider" --project="${PROJECT_ID}" --location="global" --workload-identity-pool="github-actions-pool" --format="value(name)"
 WORKLOAD_IDENTITY_POOL_PROVIDER_ID='PUT_ABOVE_OUTPUT_HERE'
