@@ -31,7 +31,11 @@
     "e2e:admin:ci": "ng run admin:cypress-run",
     "e2e:lp:ci": "ng run lp:cypress-run",
     "e2e:web:ci": "ng run web:cypress-run",
-    "e2e:shared:ci": "ng run shared:cypress-run"
+    "e2e:shared:ci": "ng run shared:cypress-run",
+    "reg-suit:admin:run": "reg-suit run --config regconfig.admin.json",
+    "reg-suit:lp:run": "reg-suit run --config regconfig.lp.json",
+    "reg-suit:shared:run": "reg-suit run --config regconfig.shared.json",
+    "reg-suit:web:run": "reg-suit run --config regconfig.web.json"
   },
   "private": true,
   "dependencies": {
@@ -92,6 +96,11 @@
     "postcss": "^8.4.28",
     "prettier": "^3.0.2",
     "prettier-plugin-tailwindcss": "^0.5.3",
+    "reg-keygen-git-hash-plugin": "^0.12.2",
+    "reg-notify-github-plugin": "^0.12.2",
+    "reg-notify-slack-plugin": "^0.12.2",
+    "reg-publish-gcs-plugin": "^0.12.2",
+    "reg-suit": "^0.12.2",
     "storybook": "^7.4.0",
     "tailwindcss": "^3.3.3",
     "typescript": "~5.1.3"

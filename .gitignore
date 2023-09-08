@@ -49,3 +49,16 @@ cypress/videos
 # firebase
 *.log
 .firebase
+.reg
+
+# gcs
+reg-suit-service-account.json
+regconfig.json
+regconfig.admin.json
+regconfig.lp.json
+regconfig.shared.json
+regconfig.web.json
+regconfig.admin.encoded.txt
+regconfig.lp.encoded.txt
+regconfig.shared.encoded.txt
+regconfig.web.encoded.txt
